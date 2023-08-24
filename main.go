@@ -13,6 +13,11 @@ func main() {
 	{
 		// 文档
 		doc := swaggos.Default()
+
+		doc.BasicAuth() // 支持basic auth
+		// doc.Oauth2Password() // 支持 oauth2
+		doc.APIKeyAuth("accesss_token", "header") // 支持自定义header头的auth
+
 		doc.Response(200, BizVo{})
 
 		cpg := doc.Group("/api/pkgs").Tag("充值包管理 - C端")
